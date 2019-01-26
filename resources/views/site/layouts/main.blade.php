@@ -49,9 +49,12 @@ Released   : 20140330
     });
 </script>
 <script>
+
     header();
+    content();
+
     function header() {
-        let menu = $('#menu')
+        let menu = $('#menu');
         menu.find('a').each(function (e) {
             $(this).css("color", menu.attr('menu_color'));
             $(this).css("font-size", menu.attr('text_size'));
@@ -70,6 +73,38 @@ Released   : 20140330
         byline.css("color", banner.attr('byline_text_color'));
         byline.css("font-size", banner.attr('byline_text_size'));
 
+    }
+
+    function content() {
+        let wrapper = $('#wrapper');
+        let wrapper_byline = wrapper.find('span.byline');
+        wrapper.css("background-color", wrapper.attr('wrapper_background_color'));
+        wrapper.find('div.title').css("color", wrapper.attr('wrapper_title_color'));
+        wrapper.find('div.title').css("font-size", wrapper.attr('wrapper_title_size'));
+        wrapper.find('div.main-text').css("color", wrapper.attr('wrapper_text_color'));
+        wrapper.find('div.main-text').css("font-size", wrapper.attr('wrapper_text_size'));
+        wrapper_byline.css("color", wrapper.attr('wrapper_byline_text_color'));
+        wrapper_byline.css("font-size", wrapper.attr('wrapper_byline_text_size'));
+
+        let welcome = $('#welcome');
+        let welcome_byline = welcome.find('span.byline');
+        welcome.css("background-color", welcome.attr('welcome_background_color'));
+        welcome.find('div.title').css("color", welcome.attr('welcome_title_color'));
+        welcome.find('div.title').css("font-size", welcome.attr('welcome_title_size'));
+        welcome.find('div.main-text').css("color", welcome.attr('welcome_text_color'));
+        welcome.find('div.main-text').css("font-size", welcome.attr('welcome_text_size'));
+        welcome_byline.css("color", welcome.attr('welcome_byline_text_color'));
+        welcome_byline.css("font-size", welcome.attr('welcome_byline_text_size'));
+
+        let contact = $('#contact');
+        let contact_byline = contact.find('span.byline');
+        contact.css("background-color", contact.attr('contact_background_color'));
+        contact.find('div.title').css("color", contact.attr('contact_title_color'));
+        contact.find('div.title').css("font-size", contact.attr('contact_title_size'));
+        contact.find('div.main-text').css("color", contact.attr('contact_text_color'));
+        contact.find('div.main-text').css("font-size", contact.attr('contact_text_size'));
+        contact_byline.css("color", contact.attr('contact_byline_text_color'));
+        contact_byline.css("font-size", contact.attr('contact_byline_text_size'));
     }
 </script>
 </html>
