@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Content;
 use App\Models\Header;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,21 @@ class AdminController extends Controller
 
         $header = Header::find($request->header_id);
         $header->update($request->all());
+
+        return redirect()->back();
+    }
+
+    public function contentForm() {
+
+        $content = Content::first();
+
+        return view('admin.parts.forms.content', compact('content'));
+    }
+
+    public function contentSave(Request $request) {
+
+        $content = Content::find($request->content_id);
+        $content->update($request->all());
 
         return redirect()->back();
     }

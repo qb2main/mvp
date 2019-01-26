@@ -17,6 +17,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'AdminController@index')->name('admin.index');
     Route::get('/header', 'AdminController@headerForm')->name('admin.header.form');
     Route::post('/header-save', 'AdminController@headerSave')->name('admin.header.save');
-    Route::get('/content', 'AdminController@headerForm')->name('admin.content.form');
+    Route::get('/content', 'AdminController@contentForm')->name('admin.content.form');
+    Route::post('/content-save', 'AdminController@contentSave')->name('admin.content.save');
     Route::get('/footer', 'AdminController@headerForm')->name('admin.footer.form');
 });
