@@ -13,6 +13,9 @@ class AdminController extends Controller
 {
 
     public function index() {
+        $header = Header::first();
+        $content = Content::first();
+        $footer = Footer::first();
 
         return view('admin.index', compact('header', 'content', 'footer'));
     }
