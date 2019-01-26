@@ -18,6 +18,14 @@ class CreateHeaderTable extends Migration
             $table->text('logo_text');
             $table->text('text');
             $table->text('byline_text');
+            $table->string('text_color', 30);
+            $table->string('text_size', 10);
+            $table->string('byline_text_color', 30);
+            $table->string('byline_text_size', 10);
+            $table->string('logo_text_color', 30);
+            $table->string('logo_text_size', 10);
+            $table->string('menu_text_color', 30);
+            $table->string('menu_text_size', 10);
             $table->timestamps();
         });
     }
