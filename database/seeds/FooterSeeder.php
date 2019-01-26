@@ -18,6 +18,9 @@ class FooterSeeder extends Seeder
                 array (
                     'id' => 1,
                     'text' => 'Footer text',
+                    'text_size' => '16px',
+                    'text_color' => 'rgb(255, 255, 255)',
+                    'background_color' => 'black',
                 )
         ));
     }

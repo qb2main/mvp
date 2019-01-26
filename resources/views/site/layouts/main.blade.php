@@ -35,9 +35,8 @@ Released   : 20140330
 
 @include('site.parts.content')
 
-<div id="copyright" class="container">
-    @include('site.parts.footer')
-</div>
+@include('site.parts.footer')
+
 
 </body>
 <script src="js/app.js"></script>
@@ -52,6 +51,7 @@ Released   : 20140330
 
     header();
     content();
+    footer();
 
     function header() {
         let menu = $('#menu');
@@ -106,5 +106,14 @@ Released   : 20140330
         contact_byline.css("color", contact.attr('contact_byline_text_color'));
         contact_byline.css("font-size", contact.attr('contact_byline_text_size'));
     }
+
+
+    function footer() {
+        let copyright = $('#copyright');
+        $('body').css("background-color", copyright.attr('background_color'));
+        copyright.css("color", copyright.attr('text_color'));
+        copyright.css("font-size", copyright.attr('text_size'));
+    }
+
 </script>
 </html>
