@@ -1,1 +1,1 @@
-@extends('admin.layouts.main')
+@extends('admin.parts.forms.main')

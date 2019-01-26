@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Content;
 use App\Models\Footer;
 use App\Models\Header;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -50,6 +52,18 @@ class AdminController extends Controller
     public function footerSave(Request $request) {
         $footer = Footer::find($request->footer_id);
         $footer->update($request->all());
+
+        return redirect()->back();
+    }
+
+    public function imageSave(Request $request) {
+        $file = $request->file('file');
+        $file_name = 'header-bg.jpg';
+        $full_path = 'images/'.$file_name;
+//        dd(File::get($file));
+        if (Storage::disk('public_uploads')->put($full_path, File::get($file))) {
+
+        }
 
         return redirect()->back();
     }
