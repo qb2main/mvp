@@ -19,5 +19,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/header-save', 'AdminController@headerSave')->name('admin.header.save');
     Route::get('/content', 'AdminController@contentForm')->name('admin.content.form');
     Route::post('/content-save', 'AdminController@contentSave')->name('admin.content.save');
-    Route::get('/footer', 'AdminController@headerForm')->name('admin.footer.form');
+    Route::get('/footer', 'AdminController@footerForm')->name('admin.footer.form');
+    Route::post('/footer-save', 'AdminController@footerSave')->name('admin.footer.save');
+
 });
