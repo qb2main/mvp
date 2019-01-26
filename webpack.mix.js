@@ -18,3 +18,7 @@ mix.styles([
     'resources/assets/css/default.css',
     'resources/assets/css/fonts.css',
 ], 'public/css/additional.css');
+
+mix.styles([
+    'resources/assets/css/spectrum.css'
+], 'public/css/additional_admin.css');

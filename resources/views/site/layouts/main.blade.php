@@ -56,13 +56,13 @@ Released   : 20140330
     function header() {
         let menu = $('#menu');
         menu.find('a').each(function (e) {
-            $(this).css("color", menu.attr('menu_color'));
+            $(this).css("color", menu.attr('text_color'));
             $(this).css("font-size", menu.attr('text_size'));
         });
 
         let logo = $('#logo');
         logo.find('a').each(function (e) {
-            $(this).css("color", logo.attr('menu_color'));
+            $(this).css("color", logo.attr('text_color'));
             $(this).css("font-size", logo.attr('text_size'));
         });
 
