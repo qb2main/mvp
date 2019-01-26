@@ -91,7 +91,6 @@
         logo_text_color.spectrum({
             color: logo_text_color.val(),
             change: function(color) {
-                color.toHexString(); // #ff0000
                 logo_text_color.val(color.toHexString());
                 console.log(logo_text_color.val());
             }
@@ -101,7 +100,6 @@
         text_color.spectrum({
             color: text_color.val(),
             change: function(color) {
-                color.toHexString(); // #ff0000
                 text_color.val(color.toHexString());
                 console.log(text_color.val());
             }
@@ -111,7 +109,6 @@
         byline_text_color.spectrum({
             color: byline_text_color.val(),
             change: function(color) {
-                color.toHexString(); // #ff0000
                 byline_text_color.val(color.toHexString());
                 console.log(byline_text_color.val());
             }
@@ -121,7 +118,6 @@
         menu_text_color.spectrum({
             color: menu_text_color.val(),
             change: function(color) {
-                color.toHexString(); // #ff0000
                 menu_text_color.val(color.toHexString());
                 console.log(menu_text_color.val());
             }
