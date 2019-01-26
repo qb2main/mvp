@@ -1,0 +1,11 @@
+div.nav-logo {
+	margin-top: 10px;
+}
+div.nav-logo h4 {
+	display: inline;
+}
+div.nav-logo a {
+	font-size:10px;
+	float: right;
+	margin-top: 5px
+}

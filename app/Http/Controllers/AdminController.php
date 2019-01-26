@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Content;
 use App\Models\Footer;
 use App\Models\Header;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index() {
         $header = Header::first();
@@ -67,6 +72,12 @@ class AdminController extends Controller
         if (Storage::disk('public_uploads')->put($full_path, File::get($file))) {
 
         }
+
+        return redirect()->back();
+    }
+
+    public function logout() {
+        Auth::logout();
 
         return redirect()->back();
     }

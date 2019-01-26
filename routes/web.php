@@ -11,6 +11,8 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/', 'PageController@index');
 
 Route::group(['prefix' => 'admin'], function () {
@@ -23,4 +25,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/footer-save', 'AdminController@footerSave')->name('admin.footer.save');
     Route::post('/image-save', 'AdminController@imageSave')->name('admin.image.save');
 
+    Route::get('/logout', 'AdminController@logout')->name('admin.logout');
 });
+
+

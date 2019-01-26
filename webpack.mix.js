@@ -17,8 +17,10 @@ mix.js('resources/assets/js/app.js', 'public/js')
 mix.styles([
     'resources/assets/css/default.css',
     'resources/assets/css/fonts.css',
+    'resources/assets/css/custom.css',
 ], 'public/css/additional.css');
 
 mix.styles([
-    'resources/assets/css/spectrum.css'
+    'resources/assets/css/spectrum.css',
+    'resources/assets/css/custom_admin.css'
 ], 'public/css/additional_admin.css');
