@@ -16,5 +16,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
 mix.styles([
     'resources/assets/css/default.css',
-    'resources/assets/css/fonts.css'
-], 'public/css/template_1.css');
+    'resources/assets/css/fonts.css',
+], 'public/css/additional.css');

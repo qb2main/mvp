@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Header;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -14,6 +15,16 @@ class AdminController extends Controller
 
     public function headerForm() {
 
-        return view('admin.parts.forms.header');
+        $header = Header::first();
+
+        return view('admin.parts.forms.header', compact('header'));
+    }
+
+    public function headerSave(Request $request) {
+
+        $header = Header::find($request->header_id);
+        $header->update($request->all());
+
+        return redirect()->back();
     }
 }

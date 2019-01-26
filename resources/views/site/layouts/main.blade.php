@@ -22,7 +22,7 @@ Released   : 20140330
 
     <link href="http://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
     <link href="css/app.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="css/template_1.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/additional.css" rel="stylesheet" type="text/css" media="all" />
 
     <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
@@ -39,7 +39,7 @@ Released   : 20140330
 
 
 </body>
-<script src="js/app.js"></script>
+<script src="/js/app.js"></script>
 <script>
     $.ajaxSetup({
         headers: {
