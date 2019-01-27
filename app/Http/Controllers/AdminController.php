@@ -17,7 +17,11 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
 
-    public function index() {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index()
+    {
         $header = Header::first();
         $content = Content::first();
         $footer = Footer::first();
@@ -25,58 +29,103 @@ class AdminController extends Controller
         return view('admin.index', compact('header', 'content', 'footer'));
     }
 
-    public function headerForm() {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function headerForm()
+    {
         $header = Header::first();
 
         return view('admin.parts.forms.header', compact('header'));
     }
 
-    public function headerSave(Request $request) {
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function headerSave(Request $request)
+    {
         $header = Header::find($request->header_id);
-        $header->update($request->all());
 
-        return redirect()->back();
+        if($header->update($request->all())) {
+            return redirect()->back()->withSuccess('Header saved.');
+        };
+
+        return redirect()->back()->withErrors('Something is wrong.');
     }
 
-    public function contentForm() {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function contentForm()
+    {
         $content = Content::first();
 
         return view('admin.parts.forms.content', compact('content'));
     }
 
-    public function contentSave(Request $request) {
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function contentSave(Request $request)
+    {
         $content = Content::find($request->content_id);
-        $content->update($request->all());
 
-        return redirect()->back();
+        if($content->update($request->all())) {
+            return redirect()->back()->withSuccess('Content saved.');
+        };
+
+        return redirect()->back()->withErrors('Something is wrong.');
     }
 
-    public function footerForm() {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function footerForm()
+    {
         $footer = Footer::first();
 
         return view('admin.parts.forms.footer', compact('footer'));
     }
 
-    public function footerSave(Request $request) {
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function footerSave(Request $request)
+    {
         $footer = Footer::find($request->footer_id);
-        $footer->update($request->all());
 
-        return redirect()->back();
+        if($footer->update($request->all())) {
+            return redirect()->back()->withSuccess('Footer saved.');
+        };
+
+        return redirect()->back()->withErrors('Something is wrong.');
     }
 
-    public function imageSave(Request $request) {
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function imageSave(Request $request)
+    {
         $file = $request->file('file');
         $file_name = 'header-bg.jpg';
         $full_path = 'images/'.$file_name;
-//        dd(File::get($file));
-        if (Storage::disk('public_uploads')->put($full_path, File::get($file))) {
 
+        if (Storage::disk('public_uploads')->put($full_path, File::get($file))) {
+            return redirect()->back()->withSuccess('New image saved.');
         }
 
-        return redirect()->back();
+        return redirect()->back()->withErrors('Something is wrong.');
     }
 
-    public function logout() {
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function logout()
+    {
         Auth::logout();
 
         return redirect()->back();

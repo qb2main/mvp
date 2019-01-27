@@ -28,5 +28,4 @@
         <div class="main-text">{{ $header->text }}</div>
         <span class="byline">{{ $header->byline_text }}</span>
     </div>
-
 </div>

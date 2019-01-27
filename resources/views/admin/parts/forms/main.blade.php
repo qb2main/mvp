@@ -15,5 +15,4 @@
 
         <button type="submit" class="btn btn-success">Save</button>
     </form>
-
 @endsection

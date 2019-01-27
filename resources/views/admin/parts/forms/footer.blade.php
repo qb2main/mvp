@@ -36,11 +36,8 @@
             </div>
         </div>
        
-
         <button type="submit" class="btn btn-success">Save</button>
-
     </form>
-
 @endsection
 
 @section('js')
@@ -62,6 +59,5 @@
                 console.log(background_color.val());
             }
         });
-
     </script>
 @endsection

@@ -11,6 +11,7 @@ Released   : 20140330
 
 -->
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
@@ -27,8 +28,8 @@ Released   : 20140330
     <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
 </head>
-<body>
 
+<body>
 <div id="header-wrapper">
     @include('site.parts.header')
 </div>
@@ -37,8 +38,8 @@ Released   : 20140330
 
 @include('site.parts.footer')
 
-
 </body>
+
 <script src="/js/app.js"></script>
 <script>
     $.ajaxSetup({
@@ -46,13 +47,13 @@ Released   : 20140330
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-</script>
-<script>
 
+    // Set css from database
     header();
     content();
     footer();
 
+    // Set css from database for header
     function header() {
         let menu = $('#menu');
         menu.find('a').each(function (e) {
@@ -75,6 +76,7 @@ Released   : 20140330
 
     }
 
+    // Set css from database for content
     function content() {
         let wrapper = $('#wrapper');
         let wrapper_byline = wrapper.find('span.byline');
@@ -107,7 +109,7 @@ Released   : 20140330
         contact_byline.css("font-size", contact.attr('contact_byline_text_size'));
     }
 
-
+    // Set css from database for footer
     function footer() {
         let copyright = $('#copyright');
         $('body').css("background-color", copyright.attr('background_color'));

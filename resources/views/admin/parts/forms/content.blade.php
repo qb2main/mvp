@@ -8,6 +8,8 @@
         {{ csrf_field() }}
         <input type="hidden" name="content_id" value="{{ $content->id }}">
 
+        {{--Wrapper part--}}
+
         <div class="form-group col-sm-12">
             <label>Wrapper title</label>
             <input class="form-control" name="wrapper_title" value="{{ $content->wrapper_title }}">
@@ -70,9 +72,7 @@
             </div>
         </div>
 
-
-
-
+        {{--Welcome part--}}
 
         <div class="form-group col-sm-12">
             <label>Welcome title</label>
@@ -136,8 +136,7 @@
             </div>
         </div>
 
-
-
+        {{--Contact part--}}
 
         <div class="form-group col-sm-12">
             <label>Contact title</label>
@@ -201,11 +200,8 @@
             </div>
         </div>
        
-
         <button type="submit" class="btn btn-success">Save</button>
-
     </form>
-
 @endsection
 
 @section('js')
