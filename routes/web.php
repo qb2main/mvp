@@ -25,6 +25,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/footer-save', 'AdminController@footerSave')->name('admin.footer.save');
     Route::post('/image-save', 'AdminController@imageSave')->name('admin.image.save');
 
+    Route::post('/schema-set-active', 'AdminController@schemaSetActive')->name('admin.schema.set_active');
+    Route::post('/schema-new', 'AdminController@schemaNew')->name('admin.schema.new');
+
     Route::get('/logout', 'AdminController@logout')->name('admin.logout');
 });
 

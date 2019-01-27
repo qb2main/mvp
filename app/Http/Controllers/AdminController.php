@@ -26,11 +26,27 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $schema = Schema::where('active', true)->with('header', 'content', 'footer')->first();
+        $schemas = Schema::all();
 
-        if (!$schema) echo "No schema exist";
+        return view('admin.index', compact('schemas'));
+    }
 
-        return view('admin.index', compact('schema'));
+    public function schemaSetActive(Request $request)
+    {
+        $this->active_schema ? $this->active_schema->update(['active' => false]) : null;
+        Schema::whereId($request->active_schema_id)->update(['active' => true]);
+
+        return redirect()->back()->withSuccess('New schema activated');
+    }
+
+    public function schemaNew(Request $request)
+    {
+        $schema = Schema::create(['name' => $request->new_schema_name]);
+        $schema->header()->create($this->active_schema->header->toArray());
+        $schema->content()->create($this->active_schema->content->toArray());
+        $schema->footer()->create($this->active_schema->footer->toArray());
+
+        return redirect()->back()->withSuccess('New schema created on the base currently active');
     }
 
     /**

@@ -23,4 +23,5 @@ class Schema extends Model
     public function footer() {
         return $this->hasOne(Footer::class, 'schema_id');
     }
+
 }
