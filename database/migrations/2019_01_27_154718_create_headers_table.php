@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHeaderTable extends Migration
+class CreateHeadersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateHeaderTable extends Migration
      */
     public function up()
     {
-        Schema::create('header', function (Blueprint $table) {
+        Schema::create('headers', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('schema_id')->unsigned()->nullable();
+            $table->foreign('schema_id')->references('id')->on('schemas')->onDelete('cascade');
             $table->text('logo_text')->nullable();
             $table->text('text')->nullable();
             $table->text('byline_text')->nullable();
@@ -26,6 +28,7 @@ class CreateHeaderTable extends Migration
             $table->string('logo_text_size', 10)->nullable();
             $table->string('menu_text_color', 30)->nullable();
             $table->string('menu_text_size', 10)->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
@@ -37,6 +40,6 @@ class CreateHeaderTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('header');
+        Schema::dropIfExists('headers');
     }
 }

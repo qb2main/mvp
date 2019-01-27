@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContentTable extends Migration
+class CreateContentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateContentTable extends Migration
      */
     public function up()
     {
-        Schema::create('content', function (Blueprint $table) {
+        Schema::create('contents', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('schema_id')->unsigned()->nullable();
+            $table->foreign('schema_id')->references('id')->on('schemas')->onDelete('cascade');
 
             $table->string('wrapper_title')->nullable();
             $table->text('wrapper_text')->nullable();
@@ -49,7 +51,6 @@ class CreateContentTable extends Migration
             $table->string('contact_byline_text_size', 10)->nullable();
             $table->string('contact_background_color', 30)->nullable();
 
-
             $table->timestamps();
         });
     }
@@ -61,6 +62,6 @@ class CreateContentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('content');
+        Schema::dropIfExists('contents');
     }
 }

@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Footer extends Model
 {
-    protected $table = 'footer';
+    protected $table = 'footers';
     protected $fillable = [
+        'schema_id',
         'text',
         'text_size',
         'text_color',

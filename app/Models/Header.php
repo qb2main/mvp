@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Header extends Model
 {
-    protected $table = 'header';
+    protected $table = 'headers';
     protected $fillable = [
+        'schema_id',
         'logo_text',
         'text',
         'byline_text',
@@ -19,5 +20,6 @@ class Header extends Model
         'logo_text_size',
         'menu_text_color',
         'menu_text_size',
+        'image',
     ];
 }
