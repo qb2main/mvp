@@ -1,7 +1,6 @@
 @extends('admin.layouts.main')
 @section('content')
-    <h4><small>SET TEMPLATE ATTRIBUTES</small></h4>
-    <hr>
+    @include('admin.parts.forms.top')
     <h2>Content</h2>
 
     <form action="{{ route('admin.content.save') }}" method="post">

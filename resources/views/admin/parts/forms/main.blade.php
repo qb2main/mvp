@@ -1,7 +1,6 @@
 @extends('admin.layouts.main')
 @section('content')
-    <h4><small>SET TEMPLATE ATTRIBUTES</small></h4>
-    <hr>
+    @include('admin.parts.forms.top')
     <h2>Main (image in header)</h2>
 
     <img src="/images/header-bg.jpg" alt="Present image in header" height="360" width="620">

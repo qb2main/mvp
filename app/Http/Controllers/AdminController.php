@@ -19,6 +19,8 @@ class AdminController extends Controller
     {
         $this->middleware('auth');
         $this->active_schema = Schema::where('active', true)->first();
+
+        view()->share('active_schema', $this->active_schema);
     }
 
     /**
