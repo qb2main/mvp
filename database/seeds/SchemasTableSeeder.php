@@ -18,6 +18,7 @@ class SchemasTableSeeder extends Seeder
                 array (
                     'id' => 1,
                     'name' => 'Schema_1',
+                    'active' => true,
                 )
         ));
     }

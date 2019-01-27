@@ -9,5 +9,6 @@ class Schema extends Model
     protected $table = 'schemas';
     protected $fillable = [
         'name',
+        'active',
     ];
 }
