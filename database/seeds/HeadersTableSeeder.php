@@ -29,6 +29,7 @@ class HeadersTableSeeder extends Seeder
                     'logo_text_size' => '41.6px',
                     'menu_text_color' => 'rgb(255, 255, 255)',
                     'menu_text_size' => '12.8px',
+                    'image' => 'header-bg.jpg',
                 )
         ));
     }

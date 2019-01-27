@@ -3,6 +3,20 @@
     @include('admin.parts.forms.top')
     <h2>Header</h2>
 
+    <h2>Image</h2>
+
+    <img src="/images/{{ $header->image }}" alt="Present image in header" height="360" width="620">
+
+    <form action="{{ route('admin.image.save') }}" method="post" enctype="multipart/form-data">
+        {{ csrf_field() }}
+        <div class="form-group col-sm-12">
+            <label>New image upload</label>
+            <input  type="file" class="form-control" name="file">
+        </div>
+
+        <button type="submit" class="btn btn-success">Save new image</button>
+    </form>
+
     <form action="{{ route('admin.header.save') }}" method="post">
         {{ csrf_field() }}
         <input type="hidden" name="header_id" value="{{ $header->id }}">

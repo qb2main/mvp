@@ -48,7 +48,7 @@ class AdminController extends Controller
         $schema->content()->create($this->active_schema->content->toArray());
         $schema->footer()->create($this->active_schema->footer->toArray());
 
-        return redirect()->back()->withSuccess('New schema created on the base currently active');
+        return redirect()->back()->withSuccess('New schema created on the base currently active one');
     }
 
     /**
@@ -145,10 +145,13 @@ class AdminController extends Controller
     public function imageSave(Request $request)
     {
         $file = $request->file('file');
-        $file_name = 'header-bg.jpg';
+        $file_extension = $file->getClientOriginalExtension();
+        $file_name = 'header_img_'. $this->active_schema->id . '.' . $file_extension;
         $full_path = 'images/'.$file_name;
 
         if (Storage::disk('public_uploads')->put($full_path, File::get($file))) {
+            $this->active_schema->header->update(['image' => $file_name]);
+
             return redirect()->back()->withSuccess('New image saved.');
         }
 

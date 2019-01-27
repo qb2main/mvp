@@ -30,7 +30,11 @@ Released   : 20140330
 </head>
 
 <body>
-<div id="header-wrapper">
+<div id="header-wrapper"
+     style=" position: relative;
+             padding: 5em 0em 7em 0em;
+             background: #111111 url({{'/images/'. $schema->header->image}}) no-repeat center;
+             background-size: cover; ">
     @include('site.parts.header')
 </div>
 
