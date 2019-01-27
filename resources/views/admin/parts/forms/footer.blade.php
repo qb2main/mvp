@@ -3,6 +3,7 @@
     @include('admin.parts.forms.top')
     <h2>Footer</h2>
 
+    {{dd($footer)}}
     <form action="{{ route('admin.footer.save') }}" method="post">
         {{ csrf_field() }}
         <input type="hidden" name="footer_id" value="{{ $footer->id }}">

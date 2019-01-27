@@ -33,6 +33,10 @@ class AdminController extends Controller
         return view('admin.index', compact('schemas'));
     }
 
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function schemaSetActive(Request $request)
     {
         $this->active_schema ? $this->active_schema->update(['active' => false]) : null;
@@ -41,6 +45,10 @@ class AdminController extends Controller
         return redirect()->back()->withSuccess('New schema activated');
     }
 
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function schemaNew(Request $request)
     {
         $schema = Schema::create(['name' => $request->new_schema_name]);
@@ -118,7 +126,7 @@ class AdminController extends Controller
             echo "No active schema exist";
         }
         else {
-            $footer = $this->active_schema->content;
+            $footer = $this->active_schema->footer;
             return view('admin.parts.forms.footer', compact('footer'));
         }
     }
