@@ -1,8 +1,8 @@
 <div id="copyright"
      class="container"
-     text_size = "{{ $footer->text_size }}"
-     text_color = "{{ $footer->text_color }}"
-     background_color = "{{ $footer->background_color }}"
+     text_size = "{{ $schema->footer->text_size }}"
+     text_color = "{{ $schema->footer->text_color }}"
+     background_color = "{{ $schema->footer->background_color }}"
 >
-    {{ $footer->text }}
+    {{ $schema->footer->text }}
 </div>

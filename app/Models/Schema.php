@@ -11,4 +11,16 @@ class Schema extends Model
         'name',
         'active',
     ];
+
+    public function header() {
+        return $this->hasOne(Header::class, 'schema_id');
+    }
+
+    public function content() {
+        return $this->hasOne(Content::class, 'schema_id');
+    }
+
+    public function footer() {
+        return $this->hasOne(Footer::class, 'schema_id');
+    }
 }

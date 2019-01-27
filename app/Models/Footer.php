@@ -15,4 +15,7 @@ class Footer extends Model
         'background_color'
     ];
 
+    public function schema() {
+        return $this->belongsTo(Schema::class, 'schema_id');
+    }
 }

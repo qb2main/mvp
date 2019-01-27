@@ -40,4 +40,8 @@ class Content extends Model
         'contact_byline_text_color',
         'contact_background_color'
     ];
+
+    public function schema() {
+        return $this->belongsTo(Schema::class, 'schema_id');
+    }
 }

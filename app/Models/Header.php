@@ -22,4 +22,8 @@ class Header extends Model
         'menu_text_size',
         'image',
     ];
+
+    public function schema() {
+        return $this->belongsTo(Schema::class, 'schema_id');
+    }
 }
