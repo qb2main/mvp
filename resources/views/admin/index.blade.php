@@ -8,7 +8,7 @@
         {{ csrf_field() }}
         <div class="form-group col-sm-12">
             <label>Active schema</label>
-            <select class="form-control" name="active_schema_id">
+            <select id="select-active-schema" class="form-control" name="active_schema_id">
                 @foreach($schemas as $schema)
                     <option value="{{ $schema->id }}" @if($schema->active == true) selected @endif>{{ $schema->name }}</option>
                 @endforeach
@@ -27,4 +27,14 @@
 
         <button type="submit" class="btn btn-success">Save</button>
     </form>
+@endsection
+
+@section('js')
+    <script>
+        // change submit button on select active schema
+        $('#select-active-schema').on('change', function () {
+            let selected_schema_name = $('#select-active-schema option:selected').text();
+            $(this).closest('form').find('button[type=submit]').text('Set ' + selected_schema_name + ' as active schema');
+        })
+    </script>
 @endsection
