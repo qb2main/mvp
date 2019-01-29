@@ -6,6 +6,7 @@ use App\Models\Content;
 use App\Models\Footer;
 use App\Models\Header;
 use App\Models\Schema;
+use App\Models\SeoProperty;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
@@ -83,7 +84,7 @@ class AdminController extends Controller
 
         if ($header->update($request->all())) {
             return redirect()->back()->withSuccess('Header saved.');
-        };
+        }
 
         return redirect()->back()->withErrors('Something is wrong.');
     }
@@ -112,7 +113,7 @@ class AdminController extends Controller
 
         if ($content->update($request->all())) {
             return redirect()->back()->withSuccess('Content saved.');
-        };
+        }
 
         return redirect()->back()->withErrors('Something is wrong.');
     }
@@ -141,7 +142,7 @@ class AdminController extends Controller
 
         if($footer->update($request->all())) {
             return redirect()->back()->withSuccess('Footer saved.');
-        };
+        }
 
         return redirect()->back()->withErrors('Something is wrong.');
     }
@@ -217,5 +218,30 @@ class AdminController extends Controller
         session()->put('editable_mode', true);
 
         return redirect()->route('home');
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function seo()
+    {
+        $seo_property = $this->active_schema->seoProperty;
+
+        return view('admin.parts.forms.seo', compact('seo_property'));
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function seoSave(Request $request)
+    {
+        $seo_property = SeoProperty::whereId($request->seo_property_id)->first();
+
+        if($seo_property->update($request->all())) {
+            return redirect()->back()->withSuccess('Seo properties saved.');
+        }
+
+        return redirect()->back()->withErrors('Something is wrong.');
     }
 }

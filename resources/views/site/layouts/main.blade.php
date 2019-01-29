@@ -14,9 +14,9 @@ Released   : 20140330
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
+    <title>{{ $active_schema->seoProperty->title }}</title>
+    <meta name="keywords" content="{{ $active_schema->seoProperty->keywords }}" />
+    <meta name="description" content="{{ $active_schema->seoProperty->description }}" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -175,6 +175,12 @@ Released   : 20140330
             //enable edit mode
             var this_tag = $(this).prop("tagName").toLowerCase();
             var divHtml = $(this).html();
+            //remove all non-word characters
+            // var divHtml = divHtml.replace(/[_\W]+/g, " ");
+            // var divHtml = divHtml.replace(/[_\W]+/g, " ");
+            //remove all new line characters
+            // var divHtml = divHtml.replace(/\r?\n|\r/, " ");
+            var divHtml = divHtml.replace(/(\r\n|\n|\r|\s\s)/gm, "");
             var editableText = $("<textarea />");
             var part = $(this).data('part');
             var field = $(this).data('field');

@@ -24,4 +24,8 @@ class Schema extends Model
         return $this->hasOne(Footer::class, 'schema_id');
     }
 
+    public function seoProperty() {
+        return $this->hasOne(SeoProperty::class, 'schema_id');
+    }
+
 }

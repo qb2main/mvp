@@ -19,7 +19,7 @@
     >
         <ul>
             <li>
-                <a class="js-for-edit"
+                <a
                    href="#header-wrapper"
                    accesskey="1"
                    title=""
