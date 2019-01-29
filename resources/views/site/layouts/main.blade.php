@@ -146,25 +146,36 @@ Released   : 20140330
             //get all attrib for nex added after editing
             var el_classes;
             var el_styles;
+            var el_data_part;
+            var el_data_field;
             $(this).each(function() {
+                // console.log(this.attributes);
                 $.each(this.attributes, function() {
                     // this.attributes is not a plain object, but an array
                     // of attribute nodes, which contain both the name and value
                     if(this.specified) {
-                        console.log(this.name, this.value);
                         if (this.name == 'class') {
                             el_classes = this.value;
                         }
                         if (this.name == 'style') {
                             el_styles = this.value;
                         }
+                        if (this.name == 'data-part') {
+                            el_data_part = this.value;
+                        }
+                        if (this.name == 'data-field') {
+                            el_data_field = this.value;
+                        }
                     }
                 });
             });
 
+            //enable edit mode
             var this_tag = $(this).prop("tagName").toLowerCase();
             var divHtml = $(this).html();
             var editableText = $("<textarea />");
+            var part = $(this).data('part');
+            var field = $(this).data('field');
             editableText.val(divHtml);
             $(this).replaceWith(editableText);
             editableText.focus();
@@ -173,12 +184,17 @@ Released   : 20140330
             $(editableText).blur(function () {
                 // Preserve the value of textarea
                 var html = $(this).val();
+                //add entered text to input in form for saving
+                $('#editable-mode-save-form').find('input[name=' + part + "_" + field + ']').val(html);
+                console.log(part);
                 // create a dynamic elemet
                 var viewableText = $("<" + this_tag + ">");
                 viewableText.html(html);
                 // viewableText.addClass('js-editable');
                 viewableText.addClass(el_classes);
                 viewableText.attr('style', el_styles);
+                viewableText.attr('data-part', el_data_part);
+                viewableText.attr('data-field', el_data_field);
                 $(this).replaceWith(viewableText);
                 editOnClick();
             });

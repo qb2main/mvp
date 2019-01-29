@@ -9,11 +9,11 @@
 >
     <div id="three-column" class="container">
         <div class="title">
-            <div>{{ $schema->content->wrapper_title }}</div>
-            <span class="byline">{{ $schema->content->wrapper_byline_text }}</span>
+            <div class="js-for-edit" data-part="content" data-field="wrapper_title">{{ $schema->content->wrapper_title }}</div>
+            <span class="js-for-edit byline" data-part="content" data-field="wrapper_byline_text">{{ $schema->content->wrapper_byline_text }}</span>
         </div>
         <div class="main-text">
-            <p>{{ $schema->content->wrapper_text }}</p>
+            <p class="js-for-edit" data-part="content" data-field="wrapper_text">{{ $schema->content->wrapper_text }}</p>
         </div>
     </div>
 </div>
@@ -28,10 +28,10 @@
 >
     <div class="container">
         <div class="title">
-            <div>{{ $schema->content->welcome_title }}</div>
-            <span class="byline">{{ $schema->content->welcome_byline_text }}</span>
+            <div class="js-for-edit" data-part="content" data-field="welcome_title">{{ $schema->content->welcome_title }}</div>
+            <span class="js-for-edit byline" data-part="content" data-field="welcome_byline_text">{{ $schema->content->welcome_byline_text }}</span>
         </div>
-        <div class="main-text">{{ $schema->content->welcome_text }}</div>
+        <div class="js-for-edit main-text" data-part="content" data-field="welcome_text">{{ $schema->content->welcome_text }}</div>
         <a class="top-link" href="#">Top >></a>
     </div>
 </div>
@@ -46,10 +46,10 @@
 >
     <div class="container">
         <div class="title">
-            <div>{{ $schema->content->contact_title }}</div>
-            <span class="byline">{{ $schema->content->contact_byline_text }}</span>
+            <div class="js-for-edit" data-part="content" data-field="contact_title">{{ $schema->content->contact_title }}</div>
+            <span class="js-for-edit byline" data-part="content" data-field="contact_byline_text">{{ $schema->content->contact_byline_text }}</span>
         </div>
-        <div class="main-text">{{ $schema->content->contact_text }}</div>
+        <div class="js-for-edit main-text" data-part="content" data-field="contact_text">{{ $schema->content->contact_text }}</div>
         <a class="top-link" href="#">Top >></a>
     </div>
 </div>

@@ -178,6 +178,30 @@ class AdminController extends Controller
 
     public function editableModeSave(Request $request)
     {
-        dd($request->all());
+        $header = Header::whereId($request->header_id)->first();
+        $content = Content::whereId($request->content_id)->first();
+        $footer = Footer::whereId($request->footer_id)->first();
+
+        $header_data = [];
+        $content_data = [];
+        $footer_data = [];
+
+        foreach ($request->all() as $field => $value) {
+            if (strpos($field, 'header_') !== false) {
+                $header_data[str_replace("header_", "", $field)] = $value;
+            }
+            if (strpos($field, 'content_') !== false) {
+                $content_data[str_replace("content_", "", $field)] = $value;
+            }
+            if (strpos($field, 'footer_') !== false) {
+                $footer_data[str_replace("footer_", "", $field)] = $value;
+            }
+        }
+
+        $header->update($header_data);
+        $content->update($content_data);
+        $footer->update($footer_data);
+
+        return redirect()->back();
     }
 }

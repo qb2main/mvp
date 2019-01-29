@@ -7,6 +7,20 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->active_schema = Schema::where('active', true)->first();
+
+        view()->share([
+            'active_schema' => $this->active_schema,
+            'header' => $this->active_schema->header,
+            'content' => $this->active_schema->content,
+            'footer' => $this->active_schema->footer,
+        ]);
+    }
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */

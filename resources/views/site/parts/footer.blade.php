@@ -4,5 +4,10 @@
      text_color = "{{ $schema->footer->text_color }}"
      background_color = "{{ $schema->footer->background_color }}"
 >
-    {{ $schema->footer->text }}
+    <span class="js-for-edit"
+          data-part="footer"
+          data-field="text"
+    >
+        {{ $schema->footer->text }}
+    </span>
 </div>
