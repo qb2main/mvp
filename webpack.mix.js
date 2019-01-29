@@ -21,6 +21,7 @@ mix.styles([
 ], 'public/css/additional.css');
 
 mix.styles([
+    'resources/assets/css/bootstrap.min.css',
     'resources/assets/css/spectrum.css',
     'resources/assets/css/custom_admin.css'
 ], 'public/css/additional_admin.css');

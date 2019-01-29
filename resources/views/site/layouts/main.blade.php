@@ -42,7 +42,18 @@ Released   : 20140330
 
 @include('site.parts.footer')
 
-@include('admin.editable_mode.form')
+@if(session()->get('editable_mode') == true)
+    @include('admin.editable_mode.form')
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+        // $('document').ready(function () {
+            alert('You are in editable mode, click on the text for edit');
+            // ADMIN EDITABLE MODE
+            startEditableMode();
+            editOnClick();
+        });
+    </script>
+@endif
 
 </body>
 
@@ -128,8 +139,7 @@ Released   : 20140330
 
 
 
-    // ADMIN EDITABLE MODE
-    startEditableMode();
+
 
     function startEditableMode() {
         $('body').find('.js-for-edit').each(function () {
@@ -137,7 +147,7 @@ Released   : 20140330
         });
     }
 
-    editOnClick();
+
 
     function editOnClick() {
         $('.js-editable').on('click', function (e) {
@@ -202,9 +212,17 @@ Released   : 20140330
 
         //save changes on click on the editable mode save-button
         $('#editable-mode-save').on('click', function () {
-            $('#editable-mode-save-form').submit();
+            $('#editable-mode-save').text('Saved');
+            $('#editable-mode-save').css('background-color', 'green');
+            $('#editable-mode-save').css('border-color', 'green');
+            setTimeout(function() {
+                $('#editable-mode-save-form').submit();
+                }, 2000);
         })
     }
 
 </script>
+
+
+
 </html>

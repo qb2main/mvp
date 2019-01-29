@@ -62,11 +62,11 @@
 
 <style>
     .editable-mode-button {
-        background-color : #31B0D5;
+        background-color : #d58694;
         color: white;
         padding: 5px 10px;
         border-radius: 4px;
-        border-color: #46b8da;
+        border-color: #d58694;
     }
 
     #no-move-button {

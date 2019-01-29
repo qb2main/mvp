@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::get('/', 'PageController@index');
+Route::get('/', 'PageController@index')->name('home');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'AdminController@index')->name('admin.index');
@@ -26,6 +26,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/image-save', 'AdminController@imageSave')->name('admin.image.save');
 
     Route::group(['prefix' => 'editable-mode'], function () {
+        Route::get('/edit', 'AdminController@editableModeEdit')->name('admin.editable_mode.edit');
         Route::post('/save', 'AdminController@editableModeSave')->name('admin.editable_mode.save');
     });
 

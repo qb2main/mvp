@@ -204,4 +204,10 @@ class AdminController extends Controller
 
         return redirect()->back();
     }
+
+    public function editableModeEdit() {
+        session()->put('editable_mode', true);
+
+        return redirect()->route('home');
+    }
 }
