@@ -25,6 +25,10 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/footer-save', 'AdminController@footerSave')->name('admin.footer.save');
     Route::post('/image-save', 'AdminController@imageSave')->name('admin.image.save');
 
+    Route::group(['prefix' => 'editable-mode'], function () {
+        Route::post('/save', 'AdminController@editableModeSave')->name('admin.editable_mode.save');
+    });
+
     Route::post('/schema-set-active', 'AdminController@schemaSetActive')->name('admin.schema.set_active');
     Route::post('/schema-new', 'AdminController@schemaNew')->name('admin.schema.new');
 

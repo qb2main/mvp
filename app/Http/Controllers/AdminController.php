@@ -175,4 +175,9 @@ class AdminController extends Controller
 
         return redirect()->back();
     }
+
+    public function editableModeSave(Request $request)
+    {
+        dd($request->all());
+    }
 }

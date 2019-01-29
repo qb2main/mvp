@@ -42,6 +42,8 @@ Released   : 20140330
 
 @include('site.parts.footer')
 
+@include('admin.editable_mode.form')
+
 </body>
 
 <script src="/js/app.js"></script>
@@ -181,6 +183,11 @@ Released   : 20140330
                 editOnClick();
             });
         });
+
+        //save changes on click on the editable mode save-button
+        $('#editable-save').on('click', function () {
+            $('#editable-save-form').submit();
+        })
     }
 
 </script>
