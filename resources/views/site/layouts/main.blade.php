@@ -42,13 +42,13 @@ Released   : 20140330
 
 @include('site.parts.footer')
 
-@if(session()->get('editable_mode') == true)
+@if(session()->pull('editable_mode') == true)
     @include('admin.editable_mode.form')
     <script>
         document.addEventListener('DOMContentLoaded', function(){
         // $('document').ready(function () {
             alert('You are in editable mode, click on the text for edit');
-            // ADMIN EDITABLE MODE
+            // ENABLE ADMIN EDITABLE MODE
             startEditableMode();
             editOnClick();
         });
@@ -135,20 +135,12 @@ Released   : 20140330
     }
 
 
-
-
-
-
-
-
+    //editable mode functions
     function startEditableMode() {
         $('body').find('.js-for-edit').each(function () {
             $(this).addClass('js-editable');
         });
     }
-
-
-
     function editOnClick() {
         $('.js-editable').on('click', function (e) {
             e.preventDefault();
@@ -222,7 +214,5 @@ Released   : 20140330
     }
 
 </script>
-
-
 
 </html>

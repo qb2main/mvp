@@ -176,6 +176,10 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function editableModeSave(Request $request)
     {
         $header = Header::whereId($request->header_id)->first();
@@ -202,9 +206,13 @@ class AdminController extends Controller
         $content->update($content_data);
         $footer->update($footer_data);
 
+        session()->put('editable_mode', true);
         return redirect()->back();
     }
 
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function editableModeEdit() {
         session()->put('editable_mode', true);
 
