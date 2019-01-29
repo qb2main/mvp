@@ -10,7 +10,6 @@ class PageController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
         $this->active_schema = Schema::where('active', true)->first();
 
         view()->share([
