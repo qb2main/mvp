@@ -1,5 +1,5 @@
 <div style="display: none">
-    <form id="editable-save-form" action="{{ route('admin.editable_mode.save') }}" method="post">
+    <form id="editable-mode-save-form" action="{{ route('admin.editable_mode.save') }}" method="post">
         {{ csrf_field() }}
         <input name="some" value="some">
 
@@ -24,5 +24,5 @@
     }
 </style>
 <div id="no-move-button">
-    <button id="editable-save" class="editable-mode-button">Editable mode >> Save </button>
+    <button id="editable-mode-save" class="editable-mode-button">Editable mode >> Save </button>
 </div>

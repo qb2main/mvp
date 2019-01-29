@@ -185,8 +185,8 @@ Released   : 20140330
         });
 
         //save changes on click on the editable mode save-button
-        $('#editable-save').on('click', function () {
-            $('#editable-save-form').submit();
+        $('#editable-mode-save').on('click', function () {
+            $('#editable-mode-save-form').submit();
         })
     }
 
