@@ -210,9 +210,14 @@ Released   : 20140330
 
         //save changes on click on the editable mode save-button
         $('#editable-mode-save').on('click', function () {
-            $('#editable-mode-save').text('Saved');
-            $('#editable-mode-save').css('background-color', 'green');
-            $('#editable-mode-save').css('border-color', 'green');
+            $('#editable-mode-save').text('Saving');
+            $('#editable-mode-save').css('background-color', '#9dc141');
+            $('#editable-mode-save').css('border-color', '#9dc141');
+            setTimeout(function() {
+                $('#editable-mode-save').text('Saved');
+                $('#editable-mode-save').css('background-color', '#11b411');
+                $('#editable-mode-save').css('border-color', '#11b411');
+            }, 1000);
             setTimeout(function() {
                 $('#editable-mode-save-form').submit();
                 }, 2000);
