@@ -3,7 +3,8 @@
          text_color = "{{ $schema->header->logo_text_color }}"
          text_size = "{{ $schema->header->logo_text_size }}"
     >
-        <h1>
+        <img src="/images/{{ $schema->header->logo_image }}" style="width: 100px; margin-bottom: 20px">
+        <h1 style="display: inline">
             <a class="js-for-edit"
                href="#"
                data-part="header"

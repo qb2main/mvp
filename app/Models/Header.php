@@ -21,6 +21,7 @@ class Header extends Model
         'menu_text_color',
         'menu_text_size',
         'image',
+        'logo_image',
     ];
 
     public function schema() {

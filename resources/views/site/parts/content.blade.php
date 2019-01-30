@@ -15,6 +15,7 @@
         <div class="main-text">
             <p class="js-for-edit" data-part="content" data-field="wrapper_text">{{ $schema->content->wrapper_text }}</p>
         </div>
+        <a class="top-link" href="#">Top >></a>
     </div>
 </div>
 <div id="welcome"

@@ -24,6 +24,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/footer', 'AdminController@footerForm')->name('admin.footer.form');
     Route::post('/footer-save', 'AdminController@footerSave')->name('admin.footer.save');
     Route::post('/image-save', 'AdminController@imageSave')->name('admin.image.save');
+    Route::post('/logo-image-save', 'AdminController@logoImageSave')->name('admin.logo_image.save');
     Route::get('/seo', 'AdminController@seo')->name('admin.seo');
     Route::post('/seo-save', 'AdminController@seoSave')->name('admin.seo.save');
 

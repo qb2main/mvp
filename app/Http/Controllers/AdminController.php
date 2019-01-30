@@ -168,6 +168,26 @@ class AdminController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function logoImageSave(Request $request)
+    {
+        $file = $request->file('file');
+        $file_extension = $file->getClientOriginalExtension();
+        $file_name = 'logo_img_'. $this->active_schema->id . '.' . $file_extension;
+        $full_path = 'images/'.$file_name;
+
+        if (Storage::disk('public_uploads')->put($full_path, File::get($file))) {
+            $this->active_schema->header->update(['logo_image' => $file_name]);
+
+            return redirect()->back()->withSuccess('New image saved.');
+        }
+
+        return redirect()->back()->withErrors('Something is wrong.');
+    }
+
+    /**
      * @return \Illuminate\Http\RedirectResponse
      */
     public function logout()

@@ -3,3 +3,12 @@ a.top-link {
 	margin-top: 50px;
 	cursor: pointer;
 }
+#wrapper {
+	padding: 4em 0em 3em 0em;
+}
+#welcome {
+	padding: 4em 0em 3em 0em;
+}
+#contact {
+	padding: 4em 0em 3em 0em;
+}
